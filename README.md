@@ -64,3 +64,17 @@ See https://git-scm.com/book/en/v2/Git-Internals-Git-Objects
 #### Commit objects
 See https://git-scm.com/book/en/v2/Git-Internals-Git-Objects
 
+## Storing Linked Data in GIT
+In order to represent a graph in GIT, the following steps need to occure:
+- Convert the graph to subject frames
+- Convert the subject frame bodies into blob objects. The blob objects are referencable through their blob object id (hash).
+- URL encode the subject frame ids
+- Create a tree object, consisting of the pairs of URL encoded subject frame id - blob object id
+- In case quads are stored instead of triples, an additional tree object is needed to represent each graph.
+- A commit object is created to represent the state of the graph.
+
+### Creating a GIT Blob object from a Subject Frame
+
+### Creating a Tree object from a set of Subject Frame blobs
+
+### Creating a Commit object to represent a point in time
